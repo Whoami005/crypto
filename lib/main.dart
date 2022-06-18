@@ -14,15 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-        create: (context) => CryptoRepository(),
-        child: BlocProvider(
-          create: (BuildContext context) => HomeCubit(
-            cryptoRepository: CryptoRepository(),
-          ),
-          child: const MaterialApp(
-            home: HomeScreen(),
-          ),
-        ));
+      create: (context) => CryptoRepository(),
+      child: BlocProvider(
+        create: (BuildContext context) => HomeCubit(
+          cryptoRepository: CryptoRepository(),
+        ),
+        child: const MaterialApp(
+          home: HomeScreen(),
+        ),
+      ),
+    );
   }
 }
-
