@@ -1,16 +1,15 @@
 # coinmarketcap
+In this project, you can track the price of cryptocurrencies and go to the exchange
 
-A new Flutter project.
+## This project used:
+- Dart
+- Flutter
+- http
+- flutter_bloc
+- Cubit
+- webview_flutter
+- auto_size_text
 
-## Getting Started
+## Application video:
+https://user-images.githubusercontent.com/46159852/174459562-33c911ac-9eca-4065-afa6-3b020333ea9f.mp4
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
