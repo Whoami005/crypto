@@ -13,7 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
         super(const HomeState(
           status: HomeStatus.initial,
           result: [],
-          countPage: {},
+          countPage: 0,
           isPaginating: false,
         ));
 
@@ -28,9 +28,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   int page = 0;
+
   Future<void> paginate() async {
-    final lastPage = state.countPage.values.toList()[0] / 30;
-    if (state.status == HomeStatus.loaded && page < lastPage.floor()) {
+    final lastPage = (state.countPage / 30).floor();
+    if (state.status == HomeStatus.loaded && page < lastPage) {
       page++;
       emit(state.copyWith(isPaginating: true));
       final response = await _cryptoRepository.fetch(page: page);

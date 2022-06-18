@@ -9,13 +9,13 @@ enum HomeStatus {
 class HomeState {
   final HomeStatus _status;
   final List<CryptoCurrency> _result;
-  final Map<String, dynamic> _countPage;
+  final int _countPage;
   final bool _isPaginating;
 
   const HomeState({
     required HomeStatus status,
     required List<CryptoCurrency> result,
-    required Map<String, dynamic> countPage,
+    required int countPage,
     required bool isPaginating,
   })  : _countPage = countPage,
         _result = result,
@@ -24,7 +24,7 @@ class HomeState {
 
   bool get isPaginating => _isPaginating;
 
-  Map<String, dynamic> get countPage => _countPage;
+  int get countPage => _countPage;
 
   List<CryptoCurrency> get result => _result;
 
@@ -33,7 +33,7 @@ class HomeState {
   HomeState copyWith({
     HomeStatus? status,
     List<CryptoCurrency>? result,
-    Map<String, dynamic>? countPage,
+    int? countPage,
     bool? isPaginating,
   }) {
     return HomeState(
