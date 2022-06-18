@@ -1,4 +1,4 @@
-import 'package:coinmarketcap/repositories/crypto_currency_repository.dart';
+import 'package:coinmarketcap/repositories/cryptocurrency_repository.dart';
 import 'package:coinmarketcap/screens/home/bloc/home_cubit.dart';
 import 'package:coinmarketcap/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +19,11 @@ class MyApp extends StatelessWidget {
         create: (BuildContext context) => HomeCubit(
           cryptoRepository: CryptoRepository(),
         ),
-        child: const MaterialApp(
-          home: HomeScreen(),
+        child: MaterialApp(
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const HomeScreen(),
+          },
         ),
       ),
     );
