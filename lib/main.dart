@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
           cryptoRepository: CryptoRepository(),
         ),
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {
             '/': (context) => const HomeScreen(),
