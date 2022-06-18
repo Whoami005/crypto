@@ -1,5 +1,5 @@
 import 'package:coinmarketcap/models/crypto_currency.dart';
-import 'package:coinmarketcap/repositories/crypto_currency_repository.dart';
+import 'package:coinmarketcap/repositories/cryptocurrency_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,6 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
           result: [],
           countPage: 0,
           isPaginating: false,
+          url: '',
         ));
 
   Future fetch({required int page}) async {
@@ -25,6 +26,14 @@ class HomeCubit extends Cubit<HomeState> {
       countPage: result.count,
       status: HomeStatus.loaded,
     ));
+  }
+
+  Future web({String? url}) async {
+    emit(state.copyWith(status: HomeStatus.inWeb, url: url));
+  }
+
+  Future exitWeb({String? url}) async {
+    emit(state.copyWith(status: HomeStatus.loaded));
   }
 
   int page = 0;
