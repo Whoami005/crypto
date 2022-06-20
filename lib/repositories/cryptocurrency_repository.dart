@@ -18,17 +18,21 @@ class CryptoRepository {
     );
     if (response.statusCode == 200) {
       final resultJson = json.decode(response.body);
-      final List<CryptoCurrency> result = [];
+      if (resultJson["Message"] == "Success") {
+        final List<CryptoCurrency> result = [];
 
-      for (final map in resultJson["Data"]) {
-        result.add(CryptoCurrency.fromJson(map));
+        for (final map in resultJson["Data"]) {
+          result.add(CryptoCurrency.fromJson(map));
+        }
+        return PaginatedResponse(
+          items: result,
+          countPage: resultJson["MetaData"]["Count"],
+        );
+      } else {
+        return throw Exception("Сервер недоступен");
       }
-      return PaginatedResponse(
-        items: result,
-        countPage: resultJson["MetaData"]["Count"],
-      );
     } else {
-      throw Exception("Ошибка сервера");
+      return throw Exception("Ошибка сервера");
     }
   }
 }
